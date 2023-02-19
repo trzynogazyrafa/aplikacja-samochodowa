@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ car_detail_form }}
+    {{ car_main_form }}
+    <input type="submit" value="Search">
+</form>
+<table>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>Seats</th>
+        <th>Fuel</th>
+        <th>Power</th>
+        <th>Production Date</th>
+        <th>Price</th>
+    </tr>
+    {% for car in cars %}
+    <tr>
+        <td>{{ car.main.make }}</td>
+        <td>{{ car.main.model }}</td>
+        <td>{{ car.detail.get_color_display }}</td>
+        <td>{{ car.detail.seats }}</td>
+        <td>{{ car.detail.get_fuel_display }}</td>
+        <td>{{ car.detail.power }}</td>
+        <td>{{ car.detail.production_date }}</td>
+        <td>{{ car.detail.price }}</td>
+        <td><a href="{% url 'car' car.id %}"> GO </a><td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock content %}

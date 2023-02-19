@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div><a href="{% url 'main' %}">BACK</a></div>
+<table>
+    <tr>
+        <th>Make</th>
+        <td>{{ car.main.make }}</td>
+    </tr>
+    <tr>
+        <th>Model</th>
+        <td>{{ car.main.model }}</td>
+    </tr>
+    <tr>
+        <th>Color</th>
+        <td>{{ car.detail.get_color_display }}</td>
+    </tr>
+    <tr>
+        <th>No. seats</th>
+        <td>{{ car.detail.seats }}</td>
+    </tr>
+    <tr>
+        <th>Fuel</th>
+        <td>{{ car.detail.get_fuel_display }}</td>
+    </tr>
+    <tr>
+        <th>Power</th>
+        <td>{{ car.detail.power }}</td>
+    </tr>
+    <tr>
+        <th>Production date</th>
+        <td>{{ car.detail.production_date }}</td>
+    </tr>
+    <tr>
+        <th>PRICE</th>
+        <td>${{ car.detail.price }}</td>
+    </tr>
+</table>
+{% endblock content %}
