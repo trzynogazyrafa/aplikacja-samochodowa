@@ -28,7 +28,7 @@
         <td>{{ car.detail.power }}</td>
         <td>{{ car.detail.production_date }}</td>
         <td>{{ car.detail.price }}</td>
-        <td><a href="{% url 'car' car.id %}"> GO </a><td>
+        <td><a type="button" class="btn btn-outline-success" href="{% url 'car' car.id %}"> GO </a><td>
     </tr>
     {% endfor %}
 </table>
